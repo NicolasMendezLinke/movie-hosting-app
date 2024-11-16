@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import '../styles/Header.css';
+import { Link } from 'react-router-dom'; // Certifique-se de que está importando Link corretamente
+import './Header.css';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,8 +13,8 @@ const Header = () => {
         </button>
         <h1 className="header__title">Filmes Dahora!</h1>
         <nav className={`nav ${isMenuOpen ? 'nav--open' : ''}`}>
-          <a href="#ranking">Ranking de Filmes</a>
-          <a href="#catalog">Catálogo</a>
+          <Link to="/">Home</Link> {/* Botão para a página inicial */}
+          <Link to="/ranking">Ranking de Filmes</Link> {/* Botão para a página de ranking */}
         </nav>
       </div>
     </header>

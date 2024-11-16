@@ -1,0 +1,42 @@
+.movie-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Altere o tamanho mínimo e ajuste para caber */
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .movie-item {
+    text-align: center;
+    position: relative;
+  }
+  
+  .movie-rank {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 50%;
+  }
+  
+  .movie-item img {
+    width: 100%; /* A imagem ocupa todo o espaço disponível */
+    border-radius: 8px;
+  }
+  .movie-item h3 {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+  
+  .movie-score {
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: bold;
+  }
+  
+  @media (min-width: 768px) {
+    .movie-list {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Aumenta o tamanho para telas maiores */
+    }
+  }

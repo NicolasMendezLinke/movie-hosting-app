@@ -1,20 +1,21 @@
-import React from 'react';
-import MovieCard from '../components/MovieCard';
+// src/pages/HomePage.jsx
+import React, { useEffect, useState } from 'react';
+import MovieList from '../components/MovieList';
+import { fetchRecentMovies } from '../api/tmdb';
 
-const movies = [
-  { title: 'Inception', description: 'A mind-bending thriller', imageUrl: '/images/inception.jpg' },
-  { title: 'The Matrix', description: 'A sci-fi classic', imageUrl: '/images/matrix.jpg' },
-];
+const HomePage = () => {
+  const [movies, setMovies] = useState([]);
 
-const HomePage = () => (
-  <div className="home-page">
-    <h1>Featured Movies</h1>
-    <div className="movie-list">
-      {movies.map((movie, index) => (
-        <MovieCard key={index} {...movie} />
-      ))}
+  useEffect(() => {
+    fetchRecentMovies().then(setMovies);
+  }, []);
+
+  return (
+    <div className="home-page">
+      <h1>Filmes Recentes</h1>
+      <MovieList movies={movies} infoType="release_date" />
     </div>
-  </div>
-);
+  );
+};
 
 export default HomePage;
