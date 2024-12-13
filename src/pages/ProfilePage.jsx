@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
+import './ProfilePage.css';
 
 const ProfilePage = () => {
   const { user, updateProfilePicture } = useAuth();
